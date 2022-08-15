@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>NYC</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-nightshade.min.css" rel="stylesheet">
+    <link href="../static/style.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+
+    <script>
+        window.onload = function(e){
+          if (document.documentElement.classList.contains('dark')) {
+          const darktoggle = document.querySelector('#darkmode');
+          darktoggle.checked = true;
+          document.getElementById('styleLabel').innerHTML
+                = 'Light Mode';
+         }
+        }
+    </script>
+
+    </head>
+    <body>
+    <div id="top"></div>
+        <div class="form-check form-switch d-flex justify-content-center" style="position: absolute; top: 30px; right: 30px;">
+            <input class="form-check-input me-2" type="checkbox" role="switch" id="darkmode" id="flexSwitchCheckDefault" style="margin-top: 6px">
+            <h4 class="form-check-label text-muted fw-bold" for="flexSwitchCheckDefault" style="color: #ffffff;" id="styleLabel">Dark Mode</h4>
+        </div> 
+        <div class="returnbtn d-flex justify-content-center" style="position: absolute; top: 30px;">
+            <h4>Go <a href="https://yamakov03.github.io">home</a></h4>
+        </div> 
+        <div id="map"></div>  
+        <div id="features" >
+            <section id="start" class="active">           
+                <div class="jumbotron container" style="height: 70vh; margin-top: 30vh">
+                        <div class="col-lg-12">    
+                            <h1 class="display-5">Summer 2022</h1> 
+                            <h1 class="fw-bold display-1">Manhattan NYC <br>through my Lens</h1>       
+                            <p class="lead">I went to Manhattan! <br>Scroll through to see the photos I took there.</p>
+                            <a class="container-arrow scroll-to" style="margin-top: 0px;" href="#next" >
+                                <span><i class="fa fa-angle-down" aria-hidden="true"></i>  </span>
+                            </a>
+                    </div>
+                </div>
+            </section>
+            <section id="5th Avenue" class="location">
+                <div id="next" style="position:absolute; bottom: 0px;"></div>
+                <h2 class="mt-5 mb-4 fw-bold">5th Avenue</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                        {% for image in midtown_5th_ave %}
+                        <div class="grid-item">
+                            <img src="{{url_for('static', filename=image)}}" />
+                        </div>
+                        {% endfor %}                            
+                    </div>
+            </section>
+            <section id="central-park" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Central Park</h2>                    
+                <div class="grid mb-4">
+                        <div class="grid-sizer"></div>
+                        {% for image in central_park %}
+                        <div class="grid-item">
+                            <img src="{{url_for('static', filename=image)}}" />
+                        </div>
+                        {% endfor %}
+                    </div>
+            </section>
+            <section id="koreatown" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Koreatown</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in koreatown %}
+                    <div class="grid-item">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                    </div>
+            </section>
+            <section id="flatiron_district" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Flatiron District</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in flatiron_district %}
+                    <div class="grid-item">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                    </div>
+            </section>
+
+            <section id="chinatown_little_italy" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Chinatown / Little Italy</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in chinatown_little_italy %}
+                    <div class="grid-item" class="location">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                    </div>
+            </section>
+
+            <section id="brooklyn_bridge" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Brooklyn Bridge</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in brooklyn_bridge %}
+                    <div class="grid-item">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                    </div>
+            </section>
+            <section id="midtown_broadway" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Midtown Broadway</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in midtown_broadway %}
+                    <div class="grid-item">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                    </div>
+            </section>
+
+            <section id="financial" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Financial District</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in financial %}
+                    <div class="grid-item">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section id="hudson_yards_chelsea" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Hudson Yards / Chelsea</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in hudson_yards_chelsea %}
+                    <div class="grid-item">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                    </div>
+            </section>
+
+            <section id="hudson" class="location">
+                <h2 class="mt-5 mb-4 fw-bold">Hudson River</h2>                    
+                <div class="grid mb-4">
+                    <div class="grid-sizer"></div>
+                    {% for image in hudson %}
+                    <div class="grid-item">
+                        <img src="{{url_for('static', filename=image)}}" />
+                    </div>
+                    {% endfor %}
+                    </div>
+            </section>
+                <a class="container-arrow scroll-to" style="margin-top: 0px; padding-bottom: 50px;" href="#top" >
+                    <span><i class="fa fa-angle-up" aria-hidden="true"></i>  </span>
+                </a>
+                <footer class="d-flex justify-content-center mb-4">
+                    <p class="text-muted">
+                        Made in 2022 by <a href="https://yamakov03.github.io/" target="_blank">Daniel</a>
+                    </p>
+                </footer>
+
+        </div>
+ 
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmV2ZXJoYXJ0MzgzIiwiYSI6IjIwNzVlOTA3ODI2MTY0MjM3OTgxMTJlODgzNjg5MzM4In0.QA1GsfWZccIB8u0FbhJmRg';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/outdoors-v11',
+                center: [-74.0048483, 40.7446333],
+                zoom: 11.0,
+                bearing: 20,
+                pitch:0
+            });
+
+            const chapters = {
+                'start': {
+                    center: [-74.0048483, 40.7446333],
+                    zoom: 11.0,
+                    bearing: 20,
+                    pitch:0,
+                    speed:0.7
+                },
+                '5th Avenue': {
+                    bearing: -55,
+                    center: [-73.9771316, 40.7586374],
+                    zoom: 16.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'central-park': {
+                    bearing: -10,
+                    center: [-73.9726526, 40.7713591],
+                    zoom: 15.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'koreatown': {
+                    bearing: 50,
+                    center: [-73.9867028, 40.7478085],
+                    zoom: 16.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'flatiron_district': {
+                    bearing: 20,
+                    center: [-73.9899001, 40.7409267],
+                    zoom: 16.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'chinatown_little_italy': {
+                    bearing: 40,
+                    center: [-73.998474, 40.7173575],
+                    zoom: 16.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'brooklyn_bridge': {
+                    bearing: 30,
+                    center: [-73.9971655, 40.70622],
+                    zoom: 16.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'midtown_broadway': {
+                    bearing: 50,
+                    center: [-73.9849287, 40.7577665],
+                    zoom: 16.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'financial': {
+                    bearing: 0,
+                    center: [-74.0095383, 40.7074705],
+                    zoom: 15.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'hudson_yards_chelsea': {
+                    bearing: 40,
+                    center: [-74.0030323, 40.7506582],
+                    zoom: 14.32,
+                    pitch: 20,
+                    speed:0.7
+                },
+                'hudson': {
+                    bearing: 30,
+                    center: [-74.0318225, 40.6963527],
+                    zoom: 13.32,
+                    pitch: 20,
+                    speed:0.7
+                }
+            };
+
+            let activeChapterName = '5th Avenue';
+            function setActiveChapter(chapterName) {
+                if (chapterName === activeChapterName) return;
+
+                map.flyTo(chapters[chapterName]);
+
+                document.getElementById(chapterName).classList.add('active');
+                document.getElementById(activeChapterName).classList.remove('active');
+
+                activeChapterName = chapterName;
+            }
+
+            function isElementOnScreen(id) {
+                const element = document.getElementById(id);
+                const bounds = element.getBoundingClientRect();
+                return bounds.top < window.innerHeight && bounds.bottom > 0;
+            }
+
+            // On every scroll event, check which element is on screen
+            window.onscroll = () => {
+                for (const chapterName in chapters) {
+                    if (isElementOnScreen(chapterName)) {
+                        setActiveChapter(chapterName);
+                        break;
+                    }
+                }
+            };
+        </script>
+
+        <script> 
+            document.querySelector('#darkmode').onclick = function(e){
+            darkmode.toggleDarkMode();
+            var element = document.getElementById("styleLabel");
+            if (element.innerHTML == "Dark Mode") {
+                element.innerHTML = "Light Mode";
+            } else {
+                element.innerHTML = "Dark Mode";
+            }
+            }
+        </script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+        <script>
+            // init Masonry
+            var $grid = $('.grid').masonry({
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            columnWidth: '.grid-sizer'
+            });
+
+            // layout Masonry after each image loads
+            $grid.imagesLoaded().progress( function() {
+            $grid.masonry();
+            });  
+        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/js/darkmode.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"crossorigin="anonymous"></script>
+
+    </body>
+</html>
