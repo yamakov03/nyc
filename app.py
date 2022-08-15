@@ -37,19 +37,19 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def index():
-    imageFolders = [f for f in os.listdir('app/static/images') if not f.startswith('.')]
+    imageFolders = [f for f in os.listdir('static/images') if not f.startswith('.')]
 
 
-    brooklyn_bridge = os.listdir('app/static/images/brooklyn_bridge')
-    central_park = os.listdir('app/static/images/central_park')
-    chinatown_little_italy = os.listdir('app/static/images/chinatown_little_italy')
-    financial = os.listdir('app/static/images/financial')
-    flatiron_district = os.listdir('app/static/images/flatiron_district')
-    hudson = os.listdir('app/static/images/hudson')
-    hudson_yards_chelsea = os.listdir('app/static/images/hudson_yards_chelsea')
-    koreatown = os.listdir('app/static/images/koreatown')
-    midtown_5th_ave = os.listdir('app/static/images/midtown_5th_ave')
-    midtown_broadway = os.listdir('app/static/images/midtown_broadway')
+    brooklyn_bridge = os.listdir('static/images/brooklyn_bridge')
+    central_park = os.listdir('static/images/central_park')
+    chinatown_little_italy = os.listdir('static/images/chinatown_little_italy')
+    financial = os.listdir('static/images/financial')
+    flatiron_district = os.listdir('static/images/flatiron_district')
+    hudson = os.listdir('static/images/hudson')
+    hudson_yards_chelsea = os.listdir('static/images/hudson_yards_chelsea')
+    koreatown = os.listdir('static/images/koreatown')
+    midtown_5th_ave = os.listdir('static/images/midtown_5th_ave')
+    midtown_broadway = os.listdir('static/images/midtown_broadway')
 
     brooklyn_bridge = ['images/brooklyn_bridge/' + f for f in brooklyn_bridge if not f.startswith('.')]
     central_park = ['images/central_park/' + f for f in central_park if not f.startswith('.')]
