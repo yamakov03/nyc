@@ -34,7 +34,7 @@
             <h4 class="form-check-label text-muted fw-bold" for="flexSwitchCheckDefault" style="color: #ffffff;" id="styleLabel">Dark Mode</h4>
         </div> 
         <div class="returnbtn d-flex justify-content-center" style="position: absolute; top: 30px;">
-            <h4>Go <a href="https://yamakov03.github.io">home</a></h4>
+            <h5>Made by <a href="https://yamakov03.github.io">Daniel</a></h5>
         </div> 
         <div id="map"></div>  
         <div id="features">
@@ -56,7 +56,7 @@
                     <div class="grid-sizer"></div>
                         {% for image in midtown_5th_ave %}
                         <div class="grid-item">
-                            <img src="{{url_for('static', filename=image)}}" />
+                            <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                         </div>
                         {% endfor %}                            
                     </div>
@@ -67,7 +67,7 @@
                         <div class="grid-sizer"></div>
                         {% for image in central_park %}
                         <div class="grid-item">
-                            <img src="{{url_for('static', filename=image)}}" />
+                            <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                         </div>
                         {% endfor %}
                     </div>
@@ -78,7 +78,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in koreatown %}
                     <div class="grid-item">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                     </div>
@@ -89,7 +89,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in flatiron_district %}
                     <div class="grid-item">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                     </div>
@@ -101,7 +101,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in chinatown_little_italy %}
                     <div class="grid-item" class="location">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                     </div>
@@ -113,7 +113,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in brooklyn_bridge %}
                     <div class="grid-item">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                     </div>
@@ -124,7 +124,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in midtown_broadway %}
                     <div class="grid-item">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                     </div>
@@ -136,7 +136,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in financial %}
                     <div class="grid-item">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                 </div>
@@ -148,7 +148,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in hudson_yards_chelsea %}
                     <div class="grid-item">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                     </div>
@@ -160,7 +160,7 @@
                     <div class="grid-sizer"></div>
                     {% for image in hudson %}
                     <div class="grid-item">
-                        <img src="{{url_for('static', filename=image)}}" />
+                        <img loading="lazy" src="{{url_for('static', filename=image)}}" />
                     </div>
                     {% endfor %}
                     </div>
@@ -170,7 +170,7 @@
                 </a>
                 <footer class="d-flex justify-content-center mb-4">
                     <p class="text-muted">
-                        Made in 2022 by <a href="https://yamakov03.github.io/" target="_blank">Daniel</a>
+                        Made by <a href="https://yamakov03.github.io/" target="_blank">Daniel</a>
                     </p>
                 </footer>
 
